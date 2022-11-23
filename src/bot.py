@@ -5,7 +5,7 @@ from loguru import logger
 
 
 class bullshit:
-    def __init__(self, username='ahmadrezane', message=f'Hi ahmadreza'):
+    def __init__(self, username='enter username', message='enter message'):
         self.bot = telebot.TeleBot(os.environ['BOT_TOKEN'])
         self.message = message
         self.username = username
@@ -19,6 +19,6 @@ class bullshit:
             self.bot.reply_to(message, self.message)
 
 if __name__=='__main__':
-    num1 = bullshit(username='moeinkaffash', message="معین باز کسشر گفتی؟")
+    num1 = bullshit(username='enter username', message='enter message')
     num1.run()
 
