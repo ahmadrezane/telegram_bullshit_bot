@@ -1,2 +1,9 @@
 # telegram_bullshit_bot
-this bot can reply a message to specific person
+## This Bot Can Reply a Message To Specific Person
+````
+firt `export PYTHONPATH=${PWD}`
+````
+then run
+````
+`src/bot.py`
+````
