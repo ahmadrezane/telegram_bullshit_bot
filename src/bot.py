@@ -2,10 +2,9 @@ import os
 
 import telebot
 from loguru import logger
-from telebot import types
 
-from src.make_button import keyboard
-
+from src.make_button import keyboard, keys
+import emoji
 
 class bullshit:
     def __init__(self, username='enter username', message='enter message'):
@@ -27,19 +26,19 @@ class bullshit:
         @self.bot.message_handler(func=lambda message:True)
         def answer(message):
             user_name = message.__dict__['json']['from']['username']
-            if message.text == 'Very good':
+            if message.text == emoji.emojize(keys.very_good):
                 self.bot.reply_to(message, 'Ok im happy for you', reply_markup=keyboard.second)
-            elif message.text == 'Good':
+            elif message.text == emoji.emojize(keys.good):
                 self.bot.reply_to(message, "That's good", reply_markup=keyboard.second )
-            elif message.text == 'Bad':
+            elif message.text == emoji.emojize(keys.bad):
                 self.bot.reply_to(message, 'I know you will be ok', reply_markup=keyboard.second)
-            elif message.text == 'back':
+            elif message.text == emoji.emojize(keys.back):
                 self.bot.send_message(
                 message.chat.id,
                 'How are you today?',
                 reply_markup=keyboard.first
                 )
-            if user_name == self.username:
+            elif user_name == self.username:
                 self.bot.reply_to(message, self.message)
 
 
